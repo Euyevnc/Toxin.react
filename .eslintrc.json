@@ -1,0 +1,32 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "env": { 
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "commonjs": true,
+    "jquery": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "ignorePatterns": ["/dist/"],
+  "extends": [
+    "eslint:recommended", 
+    "airbnb", 
+    "airbnb/hooks",
+
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "rules": {
+    "linebreak-style": 0,
+    "no-underscore-dangle": "off",
+    "no-use-before-define": ["error", { "functions": false, "classes": false }],
+    "no-unused-expressions":  ["error", { "allowShortCircuit": true, "allowTernary": true  }],
+    "max-classes-per-file": ["off"]
+  }
+}

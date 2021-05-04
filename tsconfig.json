@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "charset": "utf8",
+    "outDir": "./dist/",
+    "target": "es6",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "checkJs": false, 
+    "sourceMap": false,
+    "declaration": false,
+    "noEmit": false, 
+    "isolatedModules": false,
+    "jsx": "react",
+    "alwaysStrict": true,
+    "strictNullChecks": false, 
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+
+    "baseUrl": "./",
+    "allowSyntheticDefaultImports": true,
+
+    "noEmitOnError": true,
+    "pretty": true, 
+    "removeComments": true, 
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": ["node_modules", "build"] 
+}
