@@ -4,7 +4,9 @@ import './header.scss'
 const Header: React.FunctionComponent = ({  }) => {
   return (
       <header className="header">
-
+        <div className="header__content">
+          
+        </div>
       </header>
   );
 }
