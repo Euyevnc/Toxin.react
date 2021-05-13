@@ -1,0 +1,9 @@
+mixin stickers( { issues = [ ] } = { })
+  article.stickers
+    ul.stickers__list
+      each sticker in issues
+        li.stickers__item
+          span.stickers__img #{sticker.icon}
+          span.stickers__text
+            strong.stickers__title #{sticker.title}
+            p.stickers__subtitle #{sticker.subtitle}

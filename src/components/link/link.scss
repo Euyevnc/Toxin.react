@@ -1,0 +1,25 @@
+@import '../../assets/styles/mixin-font';
+
+.link {
+  @include default-font(
+    $size: $size-small,
+    $line: $size-small + 2.5,
+    $decor: none,
+    $weight: 700,
+    $transform: uppercase
+  );
+
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &_highlight {
+    color: $highlight-color;
+
+    &:hover {
+      color: $main-color_lighter;
+    }
+  }
+}

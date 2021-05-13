@@ -1,0 +1,16 @@
+@import '../../assets/styles/font-faces/MaterialIcons.scss';
+@import '../../assets/styles/variables';
+
+.arrow {
+  font-size: 24px;
+  font-family: 'Material Icons', fantasy;
+  direction: ltr;
+  white-space: nowrap;
+  text-align: center;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+}

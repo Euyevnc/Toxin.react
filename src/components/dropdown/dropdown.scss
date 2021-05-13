@@ -1,0 +1,135 @@
+@import '../textfield/textfield.scss';
+@import '../link/link.scss';
+@import '../../assets/styles/mixin-font';
+
+.dropdown {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 320px;
+  color: $main-color_lighter;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+
+  &__arrow {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: inline-block;
+    min-width: 44px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    cursor: pointer;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &__element {
+    display: block;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 30px;
+    margin-bottom: 7px;
+    padding-bottom: 0;
+    background-color: white;
+    user-select: none;
+  }
+
+  &__item-name {
+    @include default-font(
+      $main-color_darkest,
+      $size-small,
+      30px,
+      700,
+      none,
+      uppercase
+    );
+  }
+
+  &__tumbler {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    color: $main-color_lighter;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid $main-color_lighter;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &_depricated {
+      color: $main-color_lightest;
+      border: 1px solid $main-color_lightest;
+      cursor: auto;
+    }
+  }
+
+  &__number {
+    display: inline-block;
+    box-sizing: border-box;
+    min-width: 32px;
+    min-height: 30px;
+    color: $main-color_darkest;
+    font-weight: 700;
+    font-size: $size-small;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  &__menu {
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    z-index: 50;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 4px 6px 12px 14px;
+    list-style-type: none;
+    background-color: white;
+    border: 1px solid $main-color_lighter;
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+
+    &_hidden {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 13px 0 0 0;
+  }
+
+  &__button {
+    &_invisible {
+      visibility: hidden;
+    }
+  }
+
+  &_thin {
+    max-width: 266px;
+  }
+
+  .textfield__value {
+    &::placeholder {
+      color: $main-color;
+    }
+  }
+}

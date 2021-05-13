@@ -1,0 +1,58 @@
+@import '../double-date-picker/double-date-picker.scss';
+@import '../dropdown/dropdown.scss';
+@import '../button/button.scss';
+@import '../../assets/styles/mixin-font';
+
+.room-search {
+  box-sizing: border-box;
+  max-width: 380px;
+  padding: 39px 29px 29px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+
+  &__header {
+    @include default-font(
+      $main-color_darkest,
+      $size-largest,
+      $size-largest + 5,
+      700
+    );
+
+    min-height: 59px;
+    margin: 0;
+    margin-bottom: 21px;
+    padding: 0;
+  }
+
+  &__form {
+    min-width: 320px;
+  }
+
+  &__container {
+    min-width: 320px;
+
+    &_for_calendar {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 21px;
+    }
+
+    &_for_input {
+      margin-bottom: 31px;
+    }
+  }
+
+  &__submit-button {
+    height: 44px;
+  }
+  @media (max-width: 380px) {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  @media (max-width: 340px) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}

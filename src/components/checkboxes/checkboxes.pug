@@ -1,0 +1,13 @@
+include ../checkbox/checkbox.pug
+mixin checkboxes({ header = '', checkboxes = [ ], expanding = false, expanded = true} = { })
+  fieldset.checkboxes.js-checkboxes(class = `${expanded ? '' : ' checkboxes_shrinked' }`, data-expanding = expanding, data-expanded-initially = expanded)
+    if header
+      legend.checkboxes__header.js-checkboxes__header(tabindex = expanding ? 0 : '', style = `cursor: ${expanding ? 'pointer' : 'auto'}`) 
+        span #{header}
+        if expanding 
+          span.js-checkboxes__arrow.checkboxes__arrow
+            +arrow({ direction: 'down' })
+    .checkboxes__container.js-checkboxes__container
+      each checkbox in checkboxes
+        .checkboxes__item
+          +checkbox( checkbox )

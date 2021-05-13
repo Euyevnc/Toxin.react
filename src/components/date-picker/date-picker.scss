@@ -1,0 +1,31 @@
+@import '../../assets/styles/calendar/calendar.scss';
+@import '../../assets/styles/variables';
+@import '../textfield/textfield.scss';
+
+.date-picker {
+  position: relative;
+  max-width: 266px;
+  color: $main-color_lighter;
+
+  &__arrow {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: inline-block;
+    min-width: 44px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    cursor: pointer;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .textfield__value {
+    &::placeholder {
+      color: $main-color;
+    }
+  }
+}

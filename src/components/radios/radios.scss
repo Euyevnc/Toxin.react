@@ -1,0 +1,72 @@
+@import '../../assets/styles/mixin-font';
+@import '../../assets/styles/font-faces/MaterialIcons.scss';
+
+.radios {
+  &__header {
+    @include default-font(
+      $main-color_darkest,
+      $size-small,
+      $size-small + 3,
+      700,
+      none,
+      uppercase
+    );
+
+    margin-bottom: 15px;
+  }
+
+  &__radio-container {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  &__checkbox {
+    display: none;
+
+    & + .radios__title {
+      @include default-font(
+        $color: $main-color_lighter,
+        $line: $size-middle + 6
+      );
+
+      display: inline-block;
+      max-height: 24px;
+      vertical-align: middle;
+      cursor: pointer;
+
+      &::before {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+        color: $main-color_lightest;
+        font-size: 24px;
+        font-family: 'Material Icons', fantasy;
+        line-height: 24px;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 50%;
+        content: 'radio_button_unchecked';
+      }
+    }
+  }
+
+  &__checkbox:checked {
+    & + .radios__title {
+      color: $main-color;
+
+      &::before {
+        color: $highlight-color;
+        background: linear-gradient(
+          180deg,
+          $highlight-color,
+          $highlight-color_skew
+        );
+        -webkit-background-clip: text;
+        content: 'radio_button_checked';
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+}

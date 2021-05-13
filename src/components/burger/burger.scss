@@ -1,0 +1,70 @@
+@import '../../assets/styles/variables';
+
+.burger {
+  position: relative;
+  display: none;
+  width: 40px;
+  height: 20px;
+  border-top: 5px solid $highlight-color;
+  border-bottom: 5px solid $highlight-color;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  @media (max-width: 650px) {
+    display: inline;
+  }
+
+  &::before {
+    position: absolute;
+    top: 7.5px;
+    left: 0;
+    width: 100%;
+    border-top: 5px solid $highlight-color;
+    transition-duration: 0.3s;
+    content: '';
+  }
+
+  &::after {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    border-top: 5px solid $highlight-color;
+    transition-duration: 0.3s;
+    content: '';
+  }
+
+  &_active {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    border: none;
+    border-top: 0 solid $highlight-color;
+    border-bottom: 0 solid $highlight-color;
+    transition-duration: 0.2s;
+    @media (max-width: 600px) {
+      display: inline;
+    }
+
+    &::before {
+      position: absolute;
+      top: 7.5px;
+      left: 0;
+      width: 100%;
+      border-top: 5px solid $highlight-color;
+      transform: rotate(45deg);
+      transition-duration: 0.3s;
+      content: '';
+    }
+
+    &::after {
+      position: absolute;
+      top: 7.5px;
+      left: 0;
+      width: 100%;
+      border-top: 5px solid $highlight-color;
+      transform: rotate(-45deg);
+      transition-duration: 0.3s;
+      content: '';
+    }
+  }
+}
