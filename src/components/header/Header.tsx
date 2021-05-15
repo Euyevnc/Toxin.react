@@ -1,9 +1,12 @@
 import * as React from 'react';
+
+import Menu from "../menu/Menu";
+import Burger from '../burger/Burger';
+
 import './header.scss'
 import logoIcon from "../../assets/images/logo-icon-color.svg";
 import logoText from "../../assets/images/logo-text.svg"
-import Menu from "../menu/Menu";
-import { Burger } from '../burger/Burger';
+
 
 const Header: React.FunctionComponent<HeaderProps> = ({ menuElements }) => {
   return (

@@ -5,11 +5,17 @@ const initialState: Languages = {
   terms: { 
     eng: {
       entry: 'entry',
-      registration: 'registration'
+      registration: 'registration',
+      footerText: "Reservation of rooms in the best hotel of 2019 according to the «Hotel Views» Association",
+      subscribe: "subscribe",
+      subscribeOffer: "Receive special offers and service news"
     },
     rus: {
       entry: 'войти',
-      registration: 'регистрация'
+      registration: 'регистрация',
+      footerText: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
+      subscribe: "подписка",
+      subscribeOffer: "Получайте специальные предложения и новости сервиса"
     }
   }
 }

@@ -2,8 +2,6 @@ declare type MenuProps = {
   elements: Array<MenuElement>
 }
 
-declare type MenuElement = {
-  name: string,
-  href?: string,
+interface MenuElement extends Href {
   submenu ?: Array<MenuElement>
 }

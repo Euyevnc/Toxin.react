@@ -29,7 +29,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({ elements }) => {
                   element.submenu.map((submenu, indexSubmenu) => {
                     return(
                       <li className="menu__element" key={indexSubmenu}>
-                        <a href={submenu.href}  className="menu__link">{submenu.name}</a>
+                        <a href={submenu.link}  className="menu__link">{submenu.name}</a>
                       </li>
                     )
                   })
@@ -38,7 +38,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({ elements }) => {
             </li>
             :
             <li className="menu__element" key={indexElement}>
-              <a href={element.href}  className="menu__link">{element.name}</a>
+              <a href={element.link}  className="menu__link">{element.name}</a>
             </li>
           )
         })}

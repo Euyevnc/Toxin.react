@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import "./burger.scss"
 
-export const Burger: React.FunctionComponent<BurgerProps> = ({ menuSelector, activeClass }) => {
+const Burger: React.FunctionComponent<BurgerProps> = ({ menuSelector, activeClass }) => {
   return <span className = "burger" onClick = {handlerBurgerClick}></span>
 
   function handlerBurgerClick(event: React.MouseEvent) {
@@ -10,3 +10,5 @@ export const Burger: React.FunctionComponent<BurgerProps> = ({ menuSelector, act
     document.querySelector(menuSelector).classList.toggle(activeClass)
   }
 }
+
+export default Burger

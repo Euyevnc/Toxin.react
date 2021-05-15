@@ -8,4 +8,9 @@ declare module "*.svg" {
   export = value;
 }
 
+declare type Href = {
+  name: string,
+  link?: string
+}
+
 
