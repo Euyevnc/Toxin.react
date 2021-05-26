@@ -48,6 +48,11 @@ const footerElements = [
 ReactDOM.render(
   <Provider store = {store}>
     <Header menuElements = {menuElements}/>
+    <main className="main">
+      <div className = "main__content">
+        
+      </div>
+    </main>
     <Footer blocks = {footerElements}></Footer>
   </Provider>, 
   document.getElementById('root') 

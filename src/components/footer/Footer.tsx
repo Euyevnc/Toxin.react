@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux'
 
 import logoIcon from "../../assets/images/logo-icon-color.svg";
 import logoText from "../../assets/images/logo-text.svg"
+import Textfield from '../textfield/Textfield';
 import "./footer.scss"
 
 const Footer: React.FunctionComponent<FooterProps> = ({ blocks }) => {
@@ -36,7 +37,7 @@ const Footer: React.FunctionComponent<FooterProps> = ({ blocks }) => {
                   { 
                     block.hrefs.map( (href, hrefIndex) => {
                       return(
-                        <li className = "footer__list-element">
+                        <li className = "footer__list-element" key = {hrefIndex}>
                           <a className ="footer__link" href = {href.link} key = {hrefIndex}>{href.name}</a>
                         </li>
                       )
@@ -50,7 +51,7 @@ const Footer: React.FunctionComponent<FooterProps> = ({ blocks }) => {
         <section className = "footer__block footer__block_width_wide">
           <h3 className = "footer__heading">{local.subscribe}</h3>
           <p className = "footer__text">{local.subscribeOffer}</p>
-          <input type="text" />
+          <Textfield placeholder='Email' arrow = {true}/>
         </section>
       </div>
     </footer>

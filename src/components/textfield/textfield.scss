@@ -72,13 +72,14 @@
   }
 
   &__arrow {
+    @include default-font($highlight-color, 28px, 44px, 400, none);
+
     position: absolute;
     right: 0;
     bottom: 0;
     display: inline-block;
     min-width: 44px;
     height: 44px;
-    line-height: 44px;
     text-align: center;
     cursor: pointer;
 

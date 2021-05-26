@@ -1,6 +1,84 @@
 body {
   margin: 0;
   padding: 0;
-  color: aquamarine;
-  background-color: rebeccapurple;
+  background-color: #f4f4f6;
+}
+
+.main {
+  position: relative;
+  background-image: url('./img/landing-background-3.jpg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    min-height: 830px;
+
+    @media (max-width: 660px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      min-height: 530px;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./img/landing-background.jpg');
+    background-position: bottom;
+    opacity: 0;
+    animation: sliding-before 30s linear 0s infinite;
+    content: '';
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./img/landing-background-2.jpg');
+    background-position: bottom;
+    opacity: 0;
+    animation: sliding-after 30s linear 0s infinite;
+    content: '';
+  }
+}
+@keyframes sliding-before {
+  26% {
+    opacity: 0;
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  66% {
+    opacity: 0;
+  }
+}
+@keyframes sliding-after {
+  60% {
+    opacity: 0;
+  }
+
+  66% {
+    opacity: 1;
+  }
+
+  92% {
+    opacity: 1;
+  }
+
+  99% {
+    opacity: 0;
+  }
 }
