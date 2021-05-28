@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import Menu from "../menu/Menu";
-import Burger from '../burger/Burger';
+import Menu from "../Menu/Menu";
+import Burger from '../Burger/Burger';
 
 import './header.scss'
 import logoIcon from "../../assets/images/logo-icon-color.svg";

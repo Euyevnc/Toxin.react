@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useSelector} from 'react-redux'
-import { Authorization } from '../authorization/authorization';
+import { Authorization } from '../Authorization/Authorization';
 
 import "./menu.scss";
 
@@ -8,6 +8,10 @@ const Menu: React.FunctionComponent<MenuProps> = ({ elements }) => {
 
   const login = useSelector((state: State) => {
     return state.authorization.login
+  })
+
+  const local = useSelector((state: State) => {
+    return state.language
   })
 
   const authorization = login ? 
@@ -22,14 +26,14 @@ const Menu: React.FunctionComponent<MenuProps> = ({ elements }) => {
           return (
             element.submenu ?
             <li className="menu__element" key={indexElement} onClick = {handlerElementClick}>
-              <span className="menu__link" z-index="0">{element.name}</span>
+              <span className="menu__link" z-index="0">{element.name[local]}</span>
               <span className="menu__arrow"></span>
               <ul className="menu__submenu">
                 {
                   element.submenu.map((submenu, indexSubmenu) => {
                     return(
                       <li className="menu__element" key={indexSubmenu}>
-                        <a href={submenu.link}  className="menu__link">{submenu.name}</a>
+                        <a href={submenu.link}  className="menu__link">{submenu.name[local]}</a>
                       </li>
                     )
                   })
@@ -38,7 +42,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({ elements }) => {
             </li>
             :
             <li className="menu__element" key={indexElement}>
-              <a href={element.link}  className="menu__link">{element.name}</a>
+              <a href={element.link}  className="menu__link">{element.name[local]}</a>
             </li>
           )
         })}

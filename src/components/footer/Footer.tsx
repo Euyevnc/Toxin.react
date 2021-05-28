@@ -3,13 +3,13 @@ import {useSelector} from 'react-redux'
 
 import logoIcon from "../../assets/images/logo-icon-color.svg";
 import logoText from "../../assets/images/logo-text.svg"
-import Textfield from '../textfield/Textfield';
+import Textfield from '../Textfield/Textfield';
 import "./footer.scss"
 
-const Footer: React.FunctionComponent<FooterProps> = ({ blocks }) => {
+const Footer: React.FunctionComponent<FooterProps> = ({ blocks, textUnderLogo, subscribeOfferHeader, subscribeOfferText }) => {
 
   const local = useSelector((state: State) => {
-    return state.languages.terms[state.languages.current]
+    return state.language
   })
 
   return (
@@ -25,20 +25,20 @@ const Footer: React.FunctionComponent<FooterProps> = ({ blocks }) => {
             </span>
           </div>
           <p className = "footer__text">
-            {local.footerText}
+            {textUnderLogo[local]}
           </p>
         </section>
         {
           blocks.map( (block, blockIndex) => {
             return (
               <section className = "footer__block footer__block_width_slim" key = {blockIndex}> 
-                <h3 className = "footer__heading">{block.header}</h3>
+                <h3 className = "footer__heading">{block.header[local]}</h3>
                 <ul className="footer__list">
                   { 
                     block.hrefs.map( (href, hrefIndex) => {
                       return(
                         <li className = "footer__list-element" key = {hrefIndex}>
-                          <a className ="footer__link" href = {href.link} key = {hrefIndex}>{href.name}</a>
+                          <a className ="footer__link" href = {href.link} key = {hrefIndex}>{href.name[local]}</a>
                         </li>
                       )
                     })
@@ -49,8 +49,8 @@ const Footer: React.FunctionComponent<FooterProps> = ({ blocks }) => {
           })
         }
         <section className = "footer__block footer__block_width_wide">
-          <h3 className = "footer__heading">{local.subscribe}</h3>
-          <p className = "footer__text">{local.subscribeOffer}</p>
+          <h3 className = "footer__heading">{subscribeOfferHeader[local]}</h3>
+          <p className = "footer__text">{subscribeOfferText[local]}</p>
           <Textfield placeholder='Email' arrow = {true}/>
         </section>
       </div>

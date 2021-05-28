@@ -9,8 +9,12 @@ declare module "*.svg" {
 }
 
 declare type Href = {
-  name: string,
-  link?: string
+  name: LocalTexts,
+  link: string
+}
+
+declare type LocalTexts = {
+  [language: string]: string,
 }
 
 

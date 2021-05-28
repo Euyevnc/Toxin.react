@@ -4,5 +4,5 @@ import {languageReducer} from './langReducer'
 
 export const rootReducer = combineReducers({
   authorization: loginReducer,
-  languages: languageReducer
+  language: languageReducer
 })

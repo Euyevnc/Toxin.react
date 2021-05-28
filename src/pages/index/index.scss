@@ -6,15 +6,18 @@ body {
 
 .main {
   position: relative;
+  max-width: 1440px;
+  margin: auto;
   background-image: url('./img/landing-background-3.jpg');
   background-repeat: no-repeat;
   background-position: bottom;
   &__content {
     display: flex;
     justify-content: space-between;
-    max-width: 1400px;
+    max-width: 1180px;
     min-height: 830px;
-
+    margin: auto;
+    padding: 0 10px;
     @media (max-width: 660px) {
       flex-wrap: wrap;
       justify-content: center;
