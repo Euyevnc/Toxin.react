@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {useSelector} from 'react-redux'
-import { Authorization } from '../Authorization/Authorization';
+
+import Authorization from '../Authorization/Authorization';
 
 import "./menu.scss";
 

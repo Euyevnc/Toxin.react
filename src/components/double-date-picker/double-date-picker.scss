@@ -6,17 +6,42 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 320px;
   color: $main-color_lighter;
+
+  &__input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 44px;
+    padding-left: 15px;
+    border: 1px solid $main-color_lightest;
+    border-radius: 4px;
+    transition-duration: 0.7s;
+    @include default-font($line: 44px);
+
+    &::placeholder {
+      @include default-font($color: $main-color_lightest, $line: 44px);
+
+      opacity: 1;
+      transition-duration: 0.7s;
+    }
+
+    &:hover,
+    &:focus {
+      color: $main-color;
+      border: 1px solid $main-color_lighter;
+      transition-duration: 0.7s;
+
+      &::placeholder {
+        color: $main-color_lighter;
+        transition-duration: 0.7s;
+      }
+    }
+  }
 
   &__container {
     position: relative;
     display: inline-block;
     max-width: 150px;
-
-    &_for_second {
-      margin-left: 20px;
-    }
   }
 
   &__arrow {

@@ -1,19 +1,30 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { createStore } from 'redux'
-import { rootReducer } from '../../redux/rootReducer';
 import {Provider} from 'react-redux'
+
+import { rootReducer } from '../../redux/reducers/rootReducer';
 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import RoomSearch from '../../components/Room-search/Room-search';
 
-import './index.scss';
+import "./index.scss";
+import "react-datepicker/dist/react-datepicker.css";
 
-const store = createStore(rootReducer)
+
+const store = createStore(
+  rootReducer, 
+  (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 // setTimeout(()=> {
 //   store.dispatch({type: 'CHANGE_LANGUAGE', payload: 'en'})
 // }, 3000)
+
+// setTimeout(()=> {
+//   store.dispatch({type: 'CHANGE_LANGUAGE', payload: 'ru'})
+// }, 6000)
 
 const menuProps: HeaderProps = {
   menuElements: [
@@ -85,7 +96,9 @@ ReactDOM.render(
     <Header {...menuProps}/>
     <main className="main">
       <div className = "main__content">
-        
+        <RoomSearch/>
+        <div>
+        </div>
       </div>
     </main>
     <Footer {...footerProps}></Footer>

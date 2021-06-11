@@ -1,4 +1,4 @@
-import {CHANGE_LANGUAGE} from "./actionTypes"
+import {CHANGE_LANGUAGE} from "../actionTypes"
 
 
 export const languageReducer = (state: Language = 'ru', action: Action) => {

@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const PATHS = {
   src: path.join(__dirname, './src'),
@@ -22,6 +23,14 @@ fs.readdirSync(PATHS.pages).forEach(
       writable: false,
       value: `${itemPath}.tsx`,
     });
+
+    htmlPlugins.push(
+      new HtmlWebpackPlugin({
+        chunks: ['common', item],
+        filename: `${item}.html`,
+        template: `${itemPath}.html`,
+      })
+    );
   },
 );
 
@@ -53,12 +62,12 @@ module.exports = (env, options) => {
       watchContentBase: true,
       liveReload: true,
     },
-
-    plugins:[
+    devtool: 'eval',
+    plugins: htmlPlugins.concat([
       new MiniCssExtractPlugin({
         filename: 'styles/[name].css',
       }),
-    ],
+    ]),
 
     module: {
       rules: [
@@ -114,9 +123,8 @@ module.exports = (env, options) => {
           use: [
             {
               loader: MiniCssExtractPlugin.loader,
-              options: {
-                hmr: process.env.NODE_ENV === 'development',
-              },
+              options: { publicPath: '../' },
+
             },
             'css-loader',
             {

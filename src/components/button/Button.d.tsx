@@ -1,5 +1,5 @@
 declare type ButtonProps = {
-  text: string,
+  text: LocalTexts,
   isHighlight?: boolean, 
   isLow?: boolean,  
   withArrow?: boolean, 

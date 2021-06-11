@@ -1,15 +1,10 @@
 import * as React from 'react';
-import {useSelector} from 'react-redux'
 
-import { Button } from '../Button/Button';
+import Button from '../Button/Button';
 
 import "./authorization.scss";
 
-export const Authorization:  React.FunctionComponent = () => {
-  const local = useSelector((state: State) => {
-    return state.language
-  })
-
+const Authorization:  React.FunctionComponent = () => {
   const textsForEntry:LocalTexts = {
     en: 'entry',
     ru: 'войти'
@@ -20,14 +15,26 @@ export const Authorization:  React.FunctionComponent = () => {
     ru: 'регистрация'
   }
 
+  const entryProps: ButtonProps = {
+    isLow: true,
+    text: textsForEntry
+  }
+
+  const registrationProps: ButtonProps = {
+    isLow: true,
+    isHighlight: true,
+    text: textForRegistration
+  }
   return(
     <span className = "authorization">
       <span className="authorization__entry-container">
-        <Button isLow = {true} text = {textsForEntry[local]}></Button>
+        <Button {...entryProps}></Button>
       </span>
       <span className="authorization__registration-container">
-        <Button isLow = {true} isHighlight = {true} text = {textForRegistration[local]}></Button>
+        <Button {...registrationProps}></Button>
       </span>
     </span>
   )
 }
+
+export default Authorization
