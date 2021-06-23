@@ -12,14 +12,19 @@
 
   &__arrow {
     position: absolute;
-    right: 0;
-    bottom: 0;
+    top: 50%;
+    right: 20px;
     display: inline-block;
-    min-width: 44px;
-    height: 44px;
+    width: 10px;
+    height: 10px;
     line-height: 44px;
     text-align: center;
+    border: 3px solid $main-color_lighter;
+    border-top: transparent;
+    border-left: transparent;
+    transform: rotate(45deg) translateY(-50%);
     cursor: pointer;
+    animation-duration: 0.3s;
 
     &:focus {
       box-shadow: none;
@@ -88,7 +93,7 @@
     top: 100%;
     left: 0%;
     z-index: 50;
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     justify-content: space-between;
     box-sizing: border-box;
@@ -104,10 +109,6 @@
     border-bottom-right-radius: 2px;
     border-bottom-left-radius: 2px;
     box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
-
-    &_hidden {
-      display: none;
-    }
   }
 
   &__buttons {
@@ -130,6 +131,17 @@
   .textfield__value {
     &::placeholder {
       color: $main-color;
+    }
+  }
+
+  &_expanded {
+    & .dropdown__menu {
+      display: flex;
+    }
+
+    & .dropdown__arrow {
+      transform: rotate(225deg) translateY(25%) translateX(-25%);
+      animation-duration: 0.3s;
     }
   }
 }

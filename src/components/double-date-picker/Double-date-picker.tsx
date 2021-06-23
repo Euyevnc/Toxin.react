@@ -48,8 +48,8 @@ const DoubleDatePicker: React.FunctionComponent<DoubleDatePickerProps> = (props)
 
 const mapStateToProps = (state: State) => ({
   local: state.language,
-  startDate: state.temporaryData.selectedDates[0],
-  endDate: state.temporaryData.selectedDates[1],
+  startDate: state.userData.selectedDates[0],
+  endDate: state.userData.selectedDates[1],
 })
 
 const mapDispatchToProps = {

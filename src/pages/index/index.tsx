@@ -18,14 +18,6 @@ const store = createStore(
   (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()
 )
 
-// setTimeout(()=> {
-//   store.dispatch({type: 'CHANGE_LANGUAGE', payload: 'en'})
-// }, 3000)
-
-// setTimeout(()=> {
-//   store.dispatch({type: 'CHANGE_LANGUAGE', payload: 'ru'})
-// }, 6000)
-
 const menuProps: HeaderProps = {
   menuElements: [
     {name: { ru: 'О нас', en: 'About us' }, link:'/about_us/'}, 
@@ -96,7 +88,7 @@ ReactDOM.render(
     <Header {...menuProps}/>
     <main className="main">
       <div className = "main__content">
-        <RoomSearch/>
+        <RoomSearch textfield = { {placeholder: { ru: 'Количество гостей', en: 'Number of guests' } } }/>
         <div>
         </div>
       </div>

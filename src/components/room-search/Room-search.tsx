@@ -1,16 +1,25 @@
 import * as React from 'react';
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 
 import DoubleDatePicker from '../Double-date-picker/Double-date-picker';
 import Button from '../Button/Button';
+import Dropdown from '../Dropdown/Dropdown';
+
+import { changeGuestsData } from '../../redux/actions';
 
 import "./room-search.scss"
 import "react-datepicker/dist/react-datepicker.css";
 
-const RoomSearch: React.FunctionComponent = ({}) => {
+const RoomSearch: React.FunctionComponent<RoomSearchProps> = (props) => {
   const local = useSelector((state: State) => {
     return state.language
   })
+
+  const guests = useSelector((state:State) => {
+    return state.userData.guests
+  })
+
+  const dispatch = useDispatch()
 
   const header = {
     ru: 'Найдём номера под ваши пожелания',
@@ -24,6 +33,15 @@ const RoomSearch: React.FunctionComponent = ({}) => {
     type: 'submit'
   }
 
+  const counterItems = guests.map((guest, index) => {
+    return {
+      ...guest,
+      min: 0,
+      max: 5,
+      concat: index === 0 ? true : false
+    }
+  })
+
   return (
     <article className = "room-search">
       <h1 className = "room-search__header">{header[local]}</h1>
@@ -31,7 +49,14 @@ const RoomSearch: React.FunctionComponent = ({}) => {
         <div className = "room-search__container">
           <DoubleDatePicker/>
         </div>
-        <div className = "room-search__container"></div>
+        <div className = "room-search__container">
+          <Dropdown 
+            textfieldProps = {props.textfield} 
+            displayButtons = {true} 
+            thin = {false} 
+            items = {counterItems} 
+            dispatcher = {(data: GuestsData) => dispatch(changeGuestsData(data))}/>
+        </div>
         <div className = "room-search__submit-button">
           <Button {...buttonProps}/>
         </div>

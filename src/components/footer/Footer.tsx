@@ -51,7 +51,7 @@ const Footer: React.FunctionComponent<FooterProps> = ({ blocks, textUnderLogo, s
         <section className = "footer__block footer__block_width_wide">
           <h3 className = "footer__heading">{subscribeOfferHeader[local]}</h3>
           <p className = "footer__text">{subscribeOfferText[local]}</p>
-          <Textfield placeholder='Email' arrow = {true}/>
+          <Textfield placeholder = { {ru: 'Email', en: 'Email'} } arrow = {true}/>
         </section>
       </div>
     </footer>

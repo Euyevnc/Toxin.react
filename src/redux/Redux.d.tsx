@@ -1,7 +1,7 @@
 declare type State = {
   authorization : Authorization
   language: Language
-  temporaryData: TemporaryData
+  userData: UserData
 }
 
 declare type Action = {
@@ -13,8 +13,14 @@ declare type Authorization = {
   login: string | null
 } 
 
-declare type TemporaryData = {
+declare type UserData = {
   selectedDates: Array<Date>
+  guests: Array<GuestsData>
+}
+
+declare type GuestsData = {
+  name: LocalTexts;
+  value: number;
 }
 
 declare type Language = 'en' | 'ru'

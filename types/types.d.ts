@@ -14,7 +14,8 @@ declare type Href = {
 }
 
 declare type LocalTexts = {
-  [language: string]: string,
+  'ru': string,
+  'en': string
 }
 
 
