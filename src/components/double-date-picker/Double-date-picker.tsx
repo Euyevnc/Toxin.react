@@ -25,7 +25,7 @@ const DoubleDatePicker: React.FunctionComponent<DoubleDatePickerProps> = (props)
           startDate={props.startDate}
           endDate={props.endDate}
           className='double-date-picker__input'
-          placeholderText = {placeholder[props.local]}
+          placeholderText = {placeholder[props.lang]}
           minDate={new Date()}
 
         />
@@ -39,7 +39,7 @@ const DoubleDatePicker: React.FunctionComponent<DoubleDatePickerProps> = (props)
           endDate={props.endDate}
           minDate={new Date( Date.now() + MS_PER_DAY)}
           className='double-date-picker__input'
-          placeholderText = {placeholder[props.local]}
+          placeholderText = {placeholder[props.lang]}
         />
       </div>
     </div>
@@ -47,7 +47,7 @@ const DoubleDatePicker: React.FunctionComponent<DoubleDatePickerProps> = (props)
 }
 
 const mapStateToProps = (state: State) => ({
-  local: state.language,
+  lang: state.language,
   startDate: state.userData.selectedDates[0],
   endDate: state.userData.selectedDates[1],
 })

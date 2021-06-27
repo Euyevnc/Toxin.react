@@ -1,8 +1,17 @@
 declare type DropdownProps = {
-  textfieldProps: TextfieldProps;
+  textfieldProps: TextfieldOwnProps;
   displayButtons: Boolean;
   thin: boolean;
-  items: Array<DropdownItem>
+  items: Array<DropdownItem>;
+  lang: Language
+  dispatcher: Function
+}
+
+declare type DropdownOwnProps = {
+  textfieldProps: TextfieldOwnProps;
+  displayButtons: Boolean;
+  thin: boolean;
+  items: Array<DropdownItem>;
   dispatcher: Function
 }
 

@@ -15,12 +15,12 @@ const Authorization:  React.FunctionComponent = () => {
     ru: 'регистрация'
   }
 
-  const entryProps: ButtonProps = {
+  const entryProps: ButtonOwnProps = {
     isLow: true,
     text: textsForEntry
   }
 
-  const registrationProps: ButtonProps = {
+  const registrationProps: ButtonOwnProps = {
     isLow: true,
     isHighlight: true,
     text: textForRegistration

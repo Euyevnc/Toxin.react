@@ -1,16 +1,14 @@
 import * as React from 'react';
-import {useSelector} from 'react-redux'
+import { connect } from 'react-redux'
 
 import logoIcon from "../../assets/images/logo-icon-color.svg";
 import logoText from "../../assets/images/logo-text.svg"
 import Textfield from '../Textfield/Textfield';
 import "./footer.scss"
 
-const Footer: React.FunctionComponent<FooterProps> = ({ blocks, textUnderLogo, subscribeOfferHeader, subscribeOfferText }) => {
+const Footer: React.FunctionComponent<FooterProps> = (props) => {
 
-  const local = useSelector((state: State) => {
-    return state.language
-  })
+  const { blocks, textUnderLogo, subscribeOfferHeader, subscribeOfferText, lang } = props
 
   return (
     <footer className = "footer">
@@ -25,20 +23,20 @@ const Footer: React.FunctionComponent<FooterProps> = ({ blocks, textUnderLogo, s
             </span>
           </div>
           <p className = "footer__text">
-            {textUnderLogo[local]}
+            {textUnderLogo[lang]}
           </p>
         </section>
         {
           blocks.map( (block, blockIndex) => {
             return (
               <section className = "footer__block footer__block_width_slim" key = {blockIndex}> 
-                <h3 className = "footer__heading">{block.header[local]}</h3>
+                <h3 className = "footer__heading">{block.header[lang]}</h3>
                 <ul className="footer__list">
                   { 
                     block.hrefs.map( (href, hrefIndex) => {
                       return(
                         <li className = "footer__list-element" key = {hrefIndex}>
-                          <a className ="footer__link" href = {href.link} key = {hrefIndex}>{href.name[local]}</a>
+                          <a className ="footer__link" href = {href.link} key = {hrefIndex}>{href.name[lang]}</a>
                         </li>
                       )
                     })
@@ -49,8 +47,8 @@ const Footer: React.FunctionComponent<FooterProps> = ({ blocks, textUnderLogo, s
           })
         }
         <section className = "footer__block footer__block_width_wide">
-          <h3 className = "footer__heading">{subscribeOfferHeader[local]}</h3>
-          <p className = "footer__text">{subscribeOfferText[local]}</p>
+          <h3 className = "footer__heading">{subscribeOfferHeader[lang]}</h3>
+          <p className = "footer__text">{subscribeOfferText[lang]}</p>
           <Textfield placeholder = { {ru: 'Email', en: 'Email'} } arrow = {true}/>
         </section>
       </div>
@@ -58,5 +56,10 @@ const Footer: React.FunctionComponent<FooterProps> = ({ blocks, textUnderLogo, s
   );
 }
 
+const mapStateToProps = (state: State, ownProps: FooterOwnProps) => ({
+  lang: state.language,
+  ...ownProps
+})
 
-export default Footer;
+
+export default connect(mapStateToProps)(Footer);

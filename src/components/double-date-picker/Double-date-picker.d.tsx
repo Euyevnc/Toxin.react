@@ -1,5 +1,5 @@
 declare type DoubleDatePickerProps = {
-  local: Language;
+  lang: Language;
   startDate: Date;
   endDate: Date;
   changeStartDate: Function,

@@ -35,7 +35,7 @@ const menuProps: HeaderProps = {
   ]
 }
 
-const footerProps: FooterProps = {
+const footerProps: FooterOwnProps = {
   textUnderLogo: {
     ru: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»',
     en: 'Reservation of rooms in the best hotel of 2019 according to the "Hotel Views" Association '

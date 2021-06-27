@@ -8,7 +8,10 @@ import logoIcon from "../../assets/images/logo-icon-color.svg";
 import logoText from "../../assets/images/logo-text.svg"
 
 
-const Header: React.FunctionComponent<HeaderProps> = ({ menuElements }) => {
+const Header: React.FunctionComponent<HeaderProps> = (props) => {
+
+  const { menuElements } = props 
+
   return (
       <header className="header">
         <div className="header__content">

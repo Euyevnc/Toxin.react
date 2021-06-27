@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useSelector, useDispatch} from 'react-redux'
+import { connect } from 'react-redux'
 
 import DoubleDatePicker from '../Double-date-picker/Double-date-picker';
 import Button from '../Button/Button';
@@ -11,22 +11,15 @@ import "./room-search.scss"
 import "react-datepicker/dist/react-datepicker.css";
 
 const RoomSearch: React.FunctionComponent<RoomSearchProps> = (props) => {
-  const local = useSelector((state: State) => {
-    return state.language
-  })
 
-  const guests = useSelector((state:State) => {
-    return state.userData.guests
-  })
-
-  const dispatch = useDispatch()
+  const { textfield, lang, guests, dispatchGuestsData } = props
 
   const header = {
     ru: 'Найдём номера под ваши пожелания',
     en: 'We will find rooms according to your wishes'
   }
 
-  const buttonProps: ButtonProps = {
+  const buttonProps: ButtonOwnProps = {
     text: {ru: "Найти", en: "Search"},
     isHighlight: true,
     withArrow: true,
@@ -44,18 +37,18 @@ const RoomSearch: React.FunctionComponent<RoomSearchProps> = (props) => {
 
   return (
     <article className = "room-search">
-      <h1 className = "room-search__header">{header[local]}</h1>
+      <h1 className = "room-search__header">{header[lang]}</h1>
       <form name = 'room-search' action = ''>
         <div className = "room-search__container">
           <DoubleDatePicker/>
         </div>
         <div className = "room-search__container">
           <Dropdown 
-            textfieldProps = {props.textfield} 
+            textfieldProps = {textfield} 
             displayButtons = {true} 
             thin = {false} 
             items = {counterItems} 
-            dispatcher = {(data: GuestsData) => dispatch(changeGuestsData(data))}/>
+            dispatcher = {(data: GuestsData) => dispatchGuestsData(data)}/>
         </div>
         <div className = "room-search__submit-button">
           <Button {...buttonProps}/>
@@ -65,4 +58,15 @@ const RoomSearch: React.FunctionComponent<RoomSearchProps> = (props) => {
   )
 }
 
-export default RoomSearch
+const mapStateToProps = (state: State, ownProps: RoomSearchOwnProps) => ({
+  lang: state.language,
+  guests: state.userData.guests,
+  ...ownProps
+
+})
+
+const mapDispatchToProps = {
+  dispatchGuestsData: changeGuestsData
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RoomSearch)

@@ -1,26 +1,25 @@
 import * as React from 'react';
 import { useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 
 import Textfield from '../Textfield/Textfield';
 
 import './dropdown.scss'
 
 const Dropdown: React.FunctionComponent<DropdownProps> = (props) => {
-  const local = useSelector((state: State)=> state.language)
-
+  const { thin, textfieldProps, items, dispatcher, lang} = props
   const root = useRef(null) 
 
   return (
-    <div className = {`dropdown ${props.thin ? 'dropdown_thin' : ''}`} ref = {root}>
-      <Textfield {...props.textfieldProps} readonly = {true} handlers = {{onFocus: handlerInputFocus}} value = {formString()}/>
+    <div className = {`dropdown ${thin ? 'dropdown_thin' : ''}`} ref = {root}>
+      <Textfield {...textfieldProps} readonly = {true} handlers = {{onFocus: handlerInputFocus}} value = {formString()}/>
       <span className="dropdown__arrow" onClick = {handlerArrowClick}/>
       <ul className = "dropdown__menu">
         {
-          props.items.map((item, index)=> {
+          items.map((item, index)=> {
             return (
               <li className="dropdown__element" key = {index}>
-                <strong className = "dropdown__item-name">{item.name[local]}</strong>
+                <strong className = "dropdown__item-name">{item.name[lang]}</strong>
                 <span className = "dropdown__counter">
                   <span className = {`dropdown__tumbler dropdown__tumbler_minus ${item.value<=item.min ? 'dropdown__tumbler_depricated' : ''}`} tabIndex = {0} onClick = {handlerMinusClick}>-</span>
                   <b className = "dropdown__number">{item.value}</b>
@@ -35,7 +34,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = (props) => {
               const newGuestsData = [...props.items]
               newGuestsData.splice(index, 1, {...item, value: newValue})
 
-              props.dispatcher(newGuestsData)
+              dispatcher(newGuestsData)
             }
 
             function handlerMinusClick() {
@@ -44,7 +43,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = (props) => {
               const newGuestsData = [...props.items]
               newGuestsData.splice(index, 1, {...item, value: newValue})
 
-              props.dispatcher(newGuestsData)
+              dispatcher(newGuestsData)
             }
           })
         }
@@ -56,7 +55,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = (props) => {
     let string = ''
     props.items.map((item, index) => {
       if (!item.value) return
-      string = `${string}${(index===0 ? '' : ', ') + item.value} ${item.name[local]}`
+      string = `${string}${(index===0 ? '' : ', ') + item.value} ${item.name[lang]}`
     })
     return string
   }
@@ -109,4 +108,9 @@ const Dropdown: React.FunctionComponent<DropdownProps> = (props) => {
 
 }
 
-export default Dropdown
+const mapStateToProps = (state: State, ownProps: DropdownOwnProps) => ({
+  lang: state.language,
+  ...ownProps
+})
+
+export default connect(mapStateToProps)(Dropdown)
