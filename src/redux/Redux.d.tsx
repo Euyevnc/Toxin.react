@@ -2,11 +2,12 @@ declare type State = {
   authorization : Authorization
   language: Language
   userData: UserData
+  inputsState: InputsState
 }
 
 declare type Action = {
   type: string
-  payload?: string | null,
+  payload?: any,
 }
 
 declare type Authorization = {
@@ -21,6 +22,10 @@ declare type UserData = {
 declare type GuestsData = {
   name: LocalTexts;
   value: number;
+}
+
+declare type InputsState = {
+  [someInputsData: string]: any
 }
 
 declare type Language = 'en' | 'ru'

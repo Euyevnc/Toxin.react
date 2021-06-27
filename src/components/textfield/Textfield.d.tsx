@@ -1,5 +1,5 @@
 declare type TextfieldProps = {
-  value?: string,
+  defaultValue?: string,
   label?: LocalTexts, 
   placeholder?: LocalTexts,
   describe?: LocalTexts, 
@@ -7,14 +7,15 @@ declare type TextfieldProps = {
   type?: string,
   readonly?: boolean,
   autocomplete?: string
-
-  lang: Language
-
   handlers?: Object
+
+  lang: Language,
+  value?: string,
+  dispatchValue: Function
 }
 
 declare type TextfieldOwnProps = {
-  value?: string,
+  defaultValue?: string,
   label?: LocalTexts, 
   placeholder?: LocalTexts,
   describe?: LocalTexts, 

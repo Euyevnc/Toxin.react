@@ -3,8 +3,10 @@ declare type DropdownProps = {
   displayButtons: Boolean;
   thin: boolean;
   items: Array<DropdownItem>;
-  lang: Language
-  dispatcher: Function
+  lang: Language;
+  expanded: boolean;
+  dispatchData: Function;
+  changeInputsState: Function
 }
 
 declare type DropdownOwnProps = {
@@ -12,7 +14,7 @@ declare type DropdownOwnProps = {
   displayButtons: Boolean;
   thin: boolean;
   items: Array<DropdownItem>;
-  dispatcher: Function
+  dispatchData: Function
 }
 
 declare type DropdownItem = {

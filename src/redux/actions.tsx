@@ -1,4 +1,4 @@
-import { CHANGE_LANGUAGE, CHANGE_LOGIN, CHANGE_START_DATE, CHANGE_END_DATE, CLEARE_DATES, CHANGE_GUESTS_DATA } from "./actionTypes";
+import { CHANGE_LANGUAGE, CHANGE_LOGIN, CHANGE_START_DATE, CHANGE_END_DATE, CLEARE_DATES, CHANGE_GUESTS_DATA, CHANGE_INPUTS_STATE } from "./actionTypes";
 
 export const changeLogin = (login: string) => ({
   type: CHANGE_LOGIN,
@@ -27,4 +27,9 @@ export const clearDates = () => ({
 export const changeGuestsData = (data: GuestsData) => ({
   type: CHANGE_GUESTS_DATA,
   payload: data
+})
+
+export const changeInputsState = (key: symbol, value: any) => ({
+  type: CHANGE_INPUTS_STATE,
+  payload: {[key]: value}
 })

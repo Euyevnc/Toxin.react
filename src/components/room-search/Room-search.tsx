@@ -48,7 +48,7 @@ const RoomSearch: React.FunctionComponent<RoomSearchProps> = (props) => {
             displayButtons = {true} 
             thin = {false} 
             items = {counterItems} 
-            dispatcher = {(data: GuestsData) => dispatchGuestsData(data)}/>
+            dispatchData = {(data: GuestsData) => dispatchGuestsData(data)}/>
         </div>
         <div className = "room-search__submit-button">
           <Button {...buttonProps}/>

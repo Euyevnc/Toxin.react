@@ -94,8 +94,7 @@
     left: 0%;
     z-index: 50;
     display: none;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
     box-sizing: border-box;
     width: 100%;
     margin: 0;
@@ -111,6 +110,15 @@
     box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
   }
 
+  &__item-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
   &__buttons {
     display: flex;
     justify-content: space-between;
@@ -119,6 +127,16 @@
   }
 
   &__button {
+    cursor: pointer;
+    @include default-font(
+      $color: $highlight-color,
+      $size: $size-small,
+      $line: $size-largest,
+      $weight: 700,
+      $decor: none,
+      $transform: uppercase
+    );
+
     &_invisible {
       visibility: hidden;
     }
