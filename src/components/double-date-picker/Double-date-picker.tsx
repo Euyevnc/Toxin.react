@@ -3,59 +3,66 @@ import { connect } from 'react-redux'
 
 import DatePicker from "react-datepicker";
 
-import { changeStartDate, changeEndDate, clearDates } from '../../redux/actions'
-
 import "./double-date-picker.scss";
 
 const DoubleDatePicker: React.FunctionComponent<DoubleDatePickerProps> = (props) => {
-  const placeholder: LocalTexts = {
-    ru: 'ДД.ММ.ГГГГ',
-    en: 'DD.MM.YYYY'
-  }
+  const {
+    firstSubscription,
+    secondSubscription,
+    firstPlaceholder,
+    secondPlaceholder,
+
+    startDate,
+    endDate,
+    lang,
+    
+    changeStartDate, 
+    changeEndDate
+  } = props
 
   const MS_PER_DAY = (60 * 60 * 24 * 1000);
 
   return(
     <div className = "double-date-picker">
       <div className = "double-date-picker__container">
+        {firstSubscription && 
+          <h3 className = "double-date-picker__subscription">{ firstSubscription[lang] }</h3>
+        }
         <DatePicker
-          selected={props.startDate}
-          onChange={(date) => props.changeStartDate(date)}
+          selected={startDate}
+          onChange={(date) => changeStartDate(date)}
           selectsStart
-          startDate={props.startDate}
-          endDate={props.endDate}
+          startDate={startDate}
+          endDate={endDate}
           className='double-date-picker__input'
-          placeholderText = {placeholder[props.lang]}
+          placeholderText = {firstPlaceholder ? firstPlaceholder[lang] : ''}
           minDate={new Date()}
 
         />
       </div>
       <div className = "double-date-picker__container">
+        {secondSubscription && 
+          <h3 className = "double-date-picker__subscription">{ secondSubscription[lang] }</h3>
+        }
         <DatePicker
-          selected={props.endDate}
-          onChange={(date) => props.changeEndDate(date)}
+          selected={endDate}
+          onChange={(date) => changeEndDate(date)}
           selectsEnd
-          startDate={props.startDate}
-          endDate={props.endDate}
+          startDate={startDate}
+          endDate={endDate}
           minDate={new Date( Date.now() + MS_PER_DAY)}
           className='double-date-picker__input'
-          placeholderText = {placeholder[props.lang]}
+          placeholderText = {secondPlaceholder ? secondPlaceholder[lang] : ''}
         />
       </div>
     </div>
   )
 }
 
-const mapStateToProps = (state: State) => ({
+const mapStateToProps = (state: State, ownProps: DoubleDatePickerOwnProps) => ({
   lang: state.language,
-  startDate: state.userData.selectedDates[0],
-  endDate: state.userData.selectedDates[1],
+  ...ownProps
 })
 
-const mapDispatchToProps = {
-  changeStartDate,
-  changeEndDate,
-  clearDates
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(DoubleDatePicker)
+export default connect(mapStateToProps)(DoubleDatePicker)

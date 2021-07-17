@@ -8,16 +8,21 @@ import { rootReducer } from '../../redux/reducers/rootReducer';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import RoomSearch from '../../components/Room-search/Room-search';
+import Paragraph from '../../components/Paragraph/Paragraph';
 
 import "./index.scss";
 import "react-datepicker/dist/react-datepicker.css";
-
 
 const store = createStore(
   rootReducer, 
   (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()
 )
 
+
+const landingText: LocalTexts = {
+  ru: 'Лучшие номера для вашей работы, отдыха и просто вдохновения',
+  en: 'The best rooms for your work, relaxation and just inspiration'
+}
 const menuProps: HeaderProps = {
   menuElements: [
     {name: { ru: 'О нас', en: 'About us' }, link:'/about_us/'}, 
@@ -83,17 +88,19 @@ const footerProps: FooterOwnProps = {
   ]
 }
 
+
 ReactDOM.render(
   <Provider store = {store}>
     <Header {...menuProps}/>
     <main className="main">
       <div className = "main__content">
-        <RoomSearch textfield = { {placeholder: { ru: 'Количество гостей', en: 'Number of guests' } } }/>
-        <div>
+        <RoomSearch/>
+        <div className = "main__text">
+          <Paragraph text = {landingText}/>
         </div>
       </div>
     </main>
-    <Footer {...footerProps}></Footer>
+    <Footer {...footerProps}/>
   </Provider>, 
   document.getElementById('root') 
 );

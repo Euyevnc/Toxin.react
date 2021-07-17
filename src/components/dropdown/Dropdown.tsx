@@ -10,7 +10,6 @@ import './dropdown.scss'
 
 const menuExpandingIdentifier = (Symbol('input identifier for expanding of menu') as any)
 
-
 const Dropdown: React.FunctionComponent<DropdownProps> = (props) => {
   const { 
     thin, 
@@ -18,9 +17,9 @@ const Dropdown: React.FunctionComponent<DropdownProps> = (props) => {
     displayButtons, 
     items, 
 
-    dispatchData, 
     lang, 
     changeInputsState,
+    dispatchData, 
 
     expanded
   } = props
@@ -87,7 +86,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = (props) => {
             <div className = "dropdown__button dropdown__button_delete" onClick = {handlerClearButtonClick}>
               <b>{clearLocals[lang]}</b>
             </div>
-            <div className = "dropdown__button dropdown__button_confirm">
+            <div className = "dropdown__button dropdown__button_confirm" onClick = {rollUpMenu}>
               <b>{confirmLocals[lang]}</b>
             </div>
           </div>

@@ -15,16 +15,27 @@ body {
     position: relative;
     z-index: 1;
     display: flex;
+    align-items: flex-start;
     justify-content: space-between;
     max-width: 1180px;
     min-height: 830px;
     margin: auto;
     padding: 0 10px;
+    padding-top: 70px;
     @media (max-width: 660px) {
       flex-wrap: wrap;
       justify-content: center;
       min-height: 530px;
     }
+  }
+
+  &__text {
+    align-self: flex-end;
+    max-width: 280px;
+    max-height: 48px;
+    margin: 0 -6px 20px 0;
+    padding: 0;
+    text-align: right;
   }
 
   &::before {

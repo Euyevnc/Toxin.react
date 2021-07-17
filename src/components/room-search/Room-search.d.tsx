@@ -1,10 +1,13 @@
 declare type RoomSearchProps = {
-  textfield?: TextfieldOwnProps
   lang: Language
   guests: Array<GuestsData>
-  dispatchGuestsData: Function
-}
 
-declare type RoomSearchOwnProps = {
-  textfield?: TextfieldOwnProps
+  startDate: Date
+  endDate: Date 
+
+  changeGuestsData: Function
+  changeStartDate: Function
+  changeEndDate: Function
+  clearDates: Function
+
 }

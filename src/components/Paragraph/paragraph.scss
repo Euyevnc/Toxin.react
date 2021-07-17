@@ -1,0 +1,15 @@
+@import '../../assets/styles/_mixin-font.scss';
+
+.paragraph {
+  @include default-font(
+    $main-color,
+    $size-middle,
+    $size-largest,
+    400,
+    none,
+    none
+  );
+
+  margin: 0;
+  padding: 0;
+}

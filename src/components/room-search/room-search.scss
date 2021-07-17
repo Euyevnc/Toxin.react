@@ -11,7 +11,6 @@
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   box-shadow: 0 0 25px rgba(197, 151, 151, 0.2);
-
   &__header {
     @include default-font(
       $main-color_darkest,
@@ -34,6 +33,7 @@
     display: flex;
     justify-content: space-between;
     min-width: 320px;
+    margin-bottom: 21px;
     &_for_calendar {
       display: flex;
       justify-content: space-between;
@@ -47,6 +47,7 @@
 
   &__submit-button {
     height: 44px;
+    padding-top: 10px;
   }
   @media (max-width: 380px) {
     padding-right: 10px;

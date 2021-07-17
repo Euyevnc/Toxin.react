@@ -12,8 +12,8 @@
 
   &__arrow {
     position: absolute;
-    top: 50%;
     right: 20px;
+    bottom: 50%;
     display: inline-block;
     width: 10px;
     height: 10px;
@@ -22,7 +22,7 @@
     border: 3px solid $main-color_lighter;
     border-top: transparent;
     border-left: transparent;
-    transform: rotate(45deg) translateY(-50%);
+    transform: rotate(45deg) translateY(75%) translateX(75%);
     cursor: pointer;
     animation-duration: 0.3s;
 
@@ -158,7 +158,7 @@
     }
 
     & .dropdown__arrow {
-      transform: rotate(225deg) translateY(25%) translateX(-25%);
+      transform: rotate(225deg) translateY(-100%) translateX(-100%);
       animation-duration: 0.3s;
     }
   }

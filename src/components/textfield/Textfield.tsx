@@ -9,14 +9,14 @@ const inputValueIdentifier = (Symbol('input identifier for value') as any)
 
 const Textfield: React.FunctionComponent<TextfieldProps> = (props) => {
   const {
-    defaultValue,
+    defaultValue = '',
+    autocomplete = 'off',
+    readonly = false, 
     label, 
     placeholder, 
     describe, 
-    arrow = false, 
+    arrow, 
     type, 
-    readonly, 
-    autocomplete,
     handlers,
     lang,
     value,
@@ -27,19 +27,19 @@ const Textfield: React.FunctionComponent<TextfieldProps> = (props) => {
     <div className = 'textfield'>
       { arrow && <strong className = 'textfield__arrow'>&#10132;</strong>}
       <label className = 'textfield__label'>
-        { label && <h3 className = 'textfield__title'>{ label[lang]}</h3> }
+        { label && <h3 className = 'textfield__title'>{ label[lang] }</h3> }
         <input 
           readOnly = {readonly || false} 
-          value = {value || defaultValue || ''} 
-          placeholder = {placeholder[lang] || ''} 
+          value = { value || defaultValue } 
+          placeholder = {placeholder ? placeholder[lang] : ''} 
           type = {type || 'text'}  
-          autoComplete = {autocomplete || 'off'} 
+          autoComplete = { autocomplete } 
           className = 'textfield__value' 
           onChange = {readonly ? null : handlerInputChange}
           {...handlers} 
         />
       </label>
-      { describe && <p className = 'textfield__describe'>{ describe[lang]}</p>}
+      { describe && <p className = 'textfield__describe'>{ describe[lang] }</p>}
     </div>
   )
 

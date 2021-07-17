@@ -4,10 +4,18 @@ import {connect} from 'react-redux'
 import './button.scss'
 
 const Button: React.FunctionComponent<ButtonProps> = (props) => {
-  const { isLow, isHighlight, withArrow, type = 'button', text, lang} = props
+  const { 
+    isLow, 
+    isHighlight, 
+    withArrow, 
+    type = 'button', 
+    text, 
+    lang
+  } = props
+
   return( 
     <button className = {"button" + (isLow ? ' button_low' : '') + (isHighlight ? ' button_highlight' : '')} type = {type}>
-      <span className = 'button__text'>{ text[lang] }</span>
+      <span className = 'button__text'>{ text[lang] || ''}</span>
       {withArrow && <span className = "button__arrow"></span>}
     </button>
   )

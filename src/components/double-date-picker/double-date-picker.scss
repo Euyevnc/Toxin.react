@@ -44,6 +44,19 @@
     max-width: 150px;
   }
 
+  &__subscription {
+    @include default-font(
+      $main-color_darkest,
+      $size-small,
+      $size-middle,
+      700,
+      none,
+      uppercase
+    );
+
+    margin: 0 0 5.5px;
+  }
+
   &__arrow {
     position: absolute;
     right: 0;
